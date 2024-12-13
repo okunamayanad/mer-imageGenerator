@@ -1,7 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityMessageType = UnityEditor.MessageType;
 
 [CustomEditor(typeof(PixelArt))]
 
@@ -23,7 +24,7 @@ public class PixelArtEditor : Editor
         //if the quality value is greater than 0.8 show a warning
         if (cmg.quality >= 0.1f)
         {
-            EditorGUILayout.HelpBox("A quality value of 0.1 or higher is not recommended. This will result in a very high amount of primitives. Also Unity might crash or stall!", MessageType.Warning);
+            EditorGUILayout.HelpBox("A quality value of 0.1 or higher is not recommended. This will result in a very high amount of primitives. Also Unity might crash or stall!", UnityMessageType.Warning);
         }
 
 
@@ -67,7 +68,7 @@ public class PixelArtEditor : Editor
 
         if (cmg.useLightsources)
         {
-            EditorGUILayout.HelpBox("Lightsources are still experimental and therefore might not work properly in-game!", MessageType.Error);
+            EditorGUILayout.HelpBox("Lightsources are still experimental and therefore might not work properly in-game!", UnityMessageType.Error);
         }
     }
 }
